@@ -1,17 +1,17 @@
 import pytest
 from src.booking_cost import calculate_booking_cost
 
+
 @pytest.mark.parametrize(
     "nights, nightly_rate_cents, expected",
     [
-        (1, 10000, 10000),  
-        (6, 10000, 60000),  
-        (7, 10000, 70000),  
-        (30, 10000, 300000), 
-        (5, 0, 0), 
+        (1, 10000, 10000),
+        (6, 10000, 60000),
+        (7, 10000, 70000),
+        (30, 10000, 300000),
+        (5, 0, 0),
     ],
 )
-
 def test_valid_booking_inputs_returns_expected_cost(
     nights, nightly_rate_cents, expected
 ):
@@ -20,6 +20,7 @@ def test_valid_booking_inputs_returns_expected_cost(
 
     # Assert
     assert result == expected
+
 
 @pytest.mark.parametrize(
     "nights, nightly_rate_cents",
@@ -34,6 +35,7 @@ def test_out_of_range_inputs_raises_value_error(nights, nightly_rate_cents):
     # Act and Assert
     with pytest.raises(ValueError):
         calculate_booking_cost(nights, nightly_rate_cents)
+
 
 @pytest.mark.parametrize(
     "nights, nightly_rate_cents",
