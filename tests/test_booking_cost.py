@@ -34,3 +34,19 @@ def test_out_of_range_inputs_raises_value_error(nights, nightly_rate_cents):
     # Act and Assert
     with pytest.raises(ValueError):
         calculate_booking_cost(nights, nightly_rate_cents)
+
+@pytest.mark.parametrize(
+    "nights, nightly_rate_cents",
+    [
+        ("5", 10000),
+        (5.5, 10000),
+        (True, 10000),
+        (5, "10000"),
+        (5, 100.5),
+        (5, False),
+    ],
+)
+def test_invalid_argument_types_raises_type_error(nights, nightly_rate_cents):
+    # Act and Assert
+    with pytest.raises(TypeError):
+        calculate_booking_cost(nights, nightly_rate_cents)
