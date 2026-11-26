@@ -4,7 +4,7 @@ def calculate_booking_cost(nights, nightly_rate_cents):
         raise TypeError("invalid argument type")
     
     if not 1 <= nights <= 30 or nightly_rate_cents < 0:
-        raise ValueError("argument outside permitted range")
+        raise ValueError("argument outside permitted ")
     
     charged_nights = nights - 1 if nights >= 7 else nights
 
