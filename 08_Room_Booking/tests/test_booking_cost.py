@@ -45,7 +45,7 @@ def test_out_of_range_inputs_raises_value_error(nights, nightly_rate_cents):
         (True, 10000),
         (5, "10000"),
         (5, 100.5),
-        (5, False),
+        (5, False), #test
     ],
 )
 def test_invalid_argument_types_raises_type_error(nights, nightly_rate_cents):
