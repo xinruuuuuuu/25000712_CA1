@@ -19,4 +19,5 @@ jobs:
         run: pip install pytest
 
       - name: Run pytest
+        working-directory: 08_Room_Booking
         run: python -m pytest
